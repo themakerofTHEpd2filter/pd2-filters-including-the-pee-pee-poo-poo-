@@ -34,3 +34,5 @@ theme = (
 )
 dest.write_text(theme + "".join(out), encoding="utf-8-sig")
 print(f"Generated {dest.name} with {count} scored ground-label color changes.")
+
+# Trigger generation after workflow registration.
