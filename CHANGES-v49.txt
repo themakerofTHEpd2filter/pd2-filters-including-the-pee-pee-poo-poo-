@@ -1,0 +1,24 @@
+PD2 filters v49 — hard 2.50 score cutoff, based on the exact three v48 files hosted on GitHub.
+
+Applies to every active filter level (1–11), for IDENTIFIED rare, magic, and crafted equipment.
+Anything scoring below 250 hundredths on BOTH caster and melee ratings is hidden
+before downstream item styling/affix exceptions can show it. An item at 2.50 is eligible.
+
+Scope deliberately excludes: unidentified equipment (affixes and final score unknown),
+unique/set items, runewords, charms, jewels, and all general currency/mapping items.
+
+Previous user override retained: ALL six Maul family bases remain visible even below 2.50.
+
+Normal Glaive and exceptional Spiculum are explicitly hidden, except identified 300+ ED
+or 2+ T4 rare/magic/crafted rolls, and removed from approved rare weapon base whitelist;
+elite Ghost Glaive remains eligible if it meets the threshold.
+
+A stale 3.0 legacy hide gate changed to 2.5, preventing a 2.50-2.99 mismatch.
+Existing strict weak-rare-base, belt/ring, set jewelry, class/circlet/helm scoring and
+color-theme rules stay in place.
+
+The files within this ZIP use the EXACT SAME names as the existing GitHub files,
+so they can replace them in the upload/commit flow instead of creating duplicates.
+
+Validated source git blob SHAs match GitHub; static syntax checks passed on all 3 files.
+Not tested in the PD2 client; in-game filtering can differ if game parser semantics change.
