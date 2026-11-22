@@ -1532,7 +1532,7 @@ ItemDisplay[RARE GROUND BOOTS !TAILORED_BOOTS !TAILORED_ID_KEEP_]:
 Alias[TAILORED_TWO_AFFIX_SC]: (MAG ID PREFIX~1-2047 SUFFIX~1-2047)
 ItemDisplay[GROUND (cm1 OR cm1p) !(TAILORED_TWO_AFFIX_SC OR (cm1 MAG !ID ILVL>90) OR (cm1 UNI))]:
 ItemDisplay[GROUND ((cm2 !UNI) OR cm2p OR cm3p OR (cm3 !UNI))]:
-ItemDisplay[GROUND jew !(RARE OR UNI)]:
+ItemDisplay[GROUND jew !(RARE OR UNI OR MAG)]:\nItemDisplay[GROUND jew MAG]: %BLUE%%NAME%%CONTINUE%{%NAME%}
 
 // Ruby for corruption, violet for desecration. Check both outcome IDs.
 Alias[TAILORED_DOUBLE_SKILL_AMULET]: ((amu OR ram) (STAT360=27 OR STAT360=50) (STAT206=27 OR STAT206=50))
