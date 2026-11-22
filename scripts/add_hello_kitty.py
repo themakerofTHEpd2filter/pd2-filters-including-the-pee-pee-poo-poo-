@@ -32,7 +32,18 @@ theme = (
     "// Based on v50 Tailored: identical visibility, 2.50 rare threshold, and item scoring.\n"
     "// Rare names remain visually distinct from gold uniques. Decorations do not change drops.\n"
 )
-dest.write_text(theme + "".join(out), encoding="utf-8-sig")
+# Hello Kitty variant also keeps all blue (magic) jewels visible on the ground.
+# Do not alter rare/unique jewel rules or other rarity filters.
+content = theme + "".join(out)
+old = "ItemDisplay[GROUND jew !(RARE OR UNI)]:"
+assert content.count(old) == 1, "Expected original magic-jewel ground hide rule"
+content = content.replace(
+    old,
+    "ItemDisplay[GROUND jew !(RARE OR UNI OR MAG)]:\\n"
+    "ItemDisplay[GROUND jew MAG]: %BLUE%%NAME%%CONTINUE%{%NAME%}",
+    1,
+)
+dest.write_text(content, encoding="utf-8-sig")
 print(f"Generated {dest.name} with {count} scored ground-label color changes.")
 
 # Trigger generation after workflow registration.
