@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'scripts/update_filter_v50.py'
+      - 'scripts/add_hello_kitty.py'
   workflow_dispatch:
 permissions:
   contents: write
@@ -14,8 +15,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           persist-credentials: true
-      - name: Update all filters and add blue-jewel variant
-        run: python3 scripts/update_filter_v50.py
+      - name: Update all filters and add blue-jewel and Hello Kitty variants
+        run: |
+          python3 scripts/update_filter_v50.py
+          python3 scripts/add_hello_kitty.py
       - name: Commit generated filter files
         run: |
           git config user.name "github-actions[bot]"
