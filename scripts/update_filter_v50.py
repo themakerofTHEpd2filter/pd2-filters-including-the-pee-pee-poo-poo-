@@ -40,3 +40,5 @@ old="ItemDisplay[GROUND jew !(RARE OR UNI)]:"
 assert s.count(old)==1
 p.write_text(s.replace(old,"ItemDisplay[GROUND jew !(RARE OR UNI OR MAG)]:\nItemDisplay[GROUND jew MAG]: %BLUE%%NAME%%CONTINUE%{%NAME%}",1),encoding="utf-8-sig")
 print("Blue-jewel variant generated")
+
+# Trigger the v50 workflow after installation.
