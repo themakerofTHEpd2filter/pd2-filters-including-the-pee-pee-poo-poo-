@@ -30,6 +30,7 @@ on:
       - 'scripts/audit_helm_regression_v72.py'
       - 'scripts/update_filter_v73.py'
       - 'scripts/audit_armor_regression_v73.py'
+      - 'scripts/audit_slot_coverage_v74.py'
       - 'scripts/update_filter_v68.py'
       - '.github/workflows/apply-filter-v50.yml'
   workflow_dispatch:
@@ -46,6 +47,7 @@ jobs:
           fetch-depth: 0
       - name: Apply v73 balanced rare chest armor scores
         run: |
+          python3 scripts/audit_slot_coverage_v74.py
           python3 scripts/update_filter_v73.py
           python3 scripts/audit_formula_compiler_v70.py
           python3 scripts/audit_helm_regression_v72.py
