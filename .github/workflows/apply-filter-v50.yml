@@ -4,6 +4,7 @@ on:
     paths:
       - 'scripts/update_filter_v50.py'
       - 'scripts/add_hello_kitty.py'
+      - 'scripts/update_filter_v51.py'
   workflow_dispatch:
 permissions:
   contents: write
@@ -15,16 +16,17 @@ jobs:
         uses: actions/checkout@v4
         with:
           persist-credentials: true
-      - name: Update all filters and add blue-jewel and Hello Kitty variants
+      - name: Generate all variants and apply v51 scoring and highlighting
         run: |
           python3 scripts/update_filter_v50.py
           python3 scripts/add_hello_kitty.py
+          python3 scripts/update_filter_v51.py
       - name: Commit generated filter files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add '*.filter'
           if ! git diff --cached --quiet; then
-            git commit -m "v50: show unique belts, boost circlets, correct mauls, add blue jewel variant"
+            git commit -m "v51: rare helm scores, unique jewelry, premium belts, mauls"
             git push
           fi
