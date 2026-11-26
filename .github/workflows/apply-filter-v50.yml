@@ -28,6 +28,8 @@ on:
       - 'scripts/audit_helm_v72.py'
       - 'scripts/update_filter_v72.py'
       - 'scripts/audit_helm_regression_v72.py'
+      - 'scripts/update_filter_v73.py'
+      - 'scripts/audit_armor_regression_v73.py'
       - 'scripts/update_filter_v68.py'
       - '.github/workflows/apply-filter-v50.yml'
   workflow_dispatch:
@@ -42,11 +44,12 @@ jobs:
         with:
           persist-credentials: true
           fetch-depth: 0
-      - name: Apply v72 helm score coverage and engine tests
+      - name: Apply v73 balanced rare chest armor scores
         run: |
-          python3 scripts/update_filter_v72.py
+          python3 scripts/update_filter_v73.py
           python3 scripts/audit_formula_compiler_v70.py
           python3 scripts/audit_helm_regression_v72.py
+          python3 scripts/audit_armor_regression_v73.py
       - name: Verify all five variants
         run: |
           python3 - <<'PY'
@@ -55,7 +58,7 @@ jobs:
           assert len(files)>=5, f"Only {len(files)} variants found"
           for p in files:
               s=p.read_text(encoding='utf-8-sig')
-              assert s.startswith('// v72:'), p
+              assert s.startswith('// v73:'), p
               assert s.count('Formula[RARESCORE]:')==1, p
               assert '4.8+/7' not in s, p
               assert '%FORMULARARESCORE%' in s, p
@@ -102,6 +105,6 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add '*.filter'
           if ! git diff --cached --quiet; then
-            git commit -m "v72: grade rare helms with CB PDR skills and socket combinations"
+            git commit -m "v73: recognize moderate rare armor caster and melee rolls"
             git push
           fi
