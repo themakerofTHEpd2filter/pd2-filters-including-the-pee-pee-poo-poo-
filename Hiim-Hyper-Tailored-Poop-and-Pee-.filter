@@ -1,4 +1,5 @@
-﻿// v51: Unique jewelry highlights; premium belts; helms ED+DS/CB+sockets+res; identified mauls scored normally.
+﻿// v52: Targeted junk blue/white gear fix; rare helm scoring and blue jewels preserved.
+// v51: Unique jewelry highlights; premium belts; helms ED+DS/CB+sockets+res; identified mauls scored normally.
 // v50: Show unique belts; +2 Necro Summon/Sorc elemental circlets stronger; ID mauls require 2.5.
 // v47: Identified rares require 2.50+ (special keeps intact); absolutely hide ground belts and rings.
 // v46: Maul-family weapons are always visible (all six normal/exceptional/elite bases); preserve labels and score rules.
@@ -32,6 +33,14 @@ ItemDisplay[GROUND BELT !(UNI (zlb OR zvb OR ztb OR zhb OR ulc OR uvc OR umc OR 
 ItemDisplay[GROUND rin !UNI]:
 // v51: More noticeable gold unique jewelry drops; preserve ID odds tooltips.
 ItemDisplay[GROUND UNI (amu OR rin)]: %BORDER-9B%%MAP-9B%%DOT-9B%%GOLD%* %NAME% *%CONTINUE%{%NAME%}
+// v52: Remove low-value ordinary blue and white dropped helms/weapons at strict tiers.
+// White/grey premium bases and identified magic items remain subject to existing checks.
+ItemDisplay[GROUND FILTLVL>2 MAG !ID HELM !CIRC !DRU !BAR]:
+ItemDisplay[GROUND FILTLVL>2 MAG !ID WEAPON !SOR !STAFF !WAND !THROWING !SCEPTER]:
+ItemDisplay[GROUND FILTLVL>2 NMAG !RW !SUP HELM !(SOCK>=3 MAXSOCKETS>=3)]:
+ItemDisplay[GROUND FILTLVL>2 NMAG !RW !SUP WEAPON !(ETH OR (SOCK>=4 TAILORED_RARE_WEAPON_BASE_OK))]:
+ItemDisplay[GROUND FILTLVL>2 NMAG !RW SUP HELM !TAILORED_SUPERIOR_BEST]:
+ItemDisplay[GROUND FILTLVL>2 NMAG !RW SUP WEAPON !TAILORED_SUPERIOR_BEST]:
 // v49: HARD SCORE CUTOFF ON IDENTIFIED SCORABLE EQUIPMENT.
 // Show only items scoring >= 2.50; item/affix-level and T4 bypasses do not override this hide.
 // Do not apply to unidentifiable currencies, unique/set items or charms/jewels.
