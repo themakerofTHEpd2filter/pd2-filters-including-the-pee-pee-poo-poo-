@@ -21,6 +21,7 @@ on:
       - 'scripts/update_filter_v67.py'
       - 'scripts/audit_score_v68.py'
       - 'scripts/update_filter_v69.py'
+      - 'scripts/audit_formula_compiler_v70.py'
       - 'scripts/update_filter_v68.py'
       - '.github/workflows/apply-filter-v50.yml'
   workflow_dispatch:
@@ -37,7 +38,7 @@ jobs:
           fetch-depth: 0
       - name: Apply v69 exact per-item rare and crafted scores
         run: |
-          python3 scripts/audit_score_v68.py
+          python3 scripts/audit_formula_compiler_v70.py
           python3 scripts/update_filter_v69.py
       - name: Verify all five variants
         run: |
