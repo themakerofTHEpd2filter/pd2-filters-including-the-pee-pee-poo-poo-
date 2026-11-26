@@ -17,7 +17,7 @@ init=''.join('reg.emplace(L"%s",FormulaVarDefinition<Dummy>(%d,&resolve));\n' %
  for v in sorted(vars))
 # Since the engine resolves variables by registered function pointer, create one
 # callback for each variable used in the simulated scenarios.
-specific={'chest','rare','id','fcr','str','cres','res','stat','edam','clsk3','sock','helm'}
+specific={'chest','rare','id','fcr','str','cres','res','stat','edam','clsk','sock','helm'}
 init=''.join('reg.emplace(L"%s",FormulaVarDefinition<Dummy>(%d,&%s));\n' %
  (v,2 if v=='multi' else 1 if v in ('stat','sk','tabsk','clsk','os','charstat','chsk') else 0,
  'get_'+v if v in specific else 'get_zero') for v in sorted(vars))
@@ -33,7 +33,7 @@ float get_cres(FormulaStatus &,Dummy *,const std::vector<int>&){return scenario=
 float get_res(FormulaStatus &,Dummy *,const std::vector<int>&){return scenario==L"ed"?26:0;}
 float get_edam(FormulaStatus &,Dummy *,const std::vector<int>&){return scenario==L"ed"?155:0;}
 float get_sock(FormulaStatus &,Dummy *,const std::vector<int>&){return 0;}
-float get_clsk3(FormulaStatus &,Dummy *,const std::vector<int>&){return scenario==L"ed"?1:0;}
+float get_clsk(FormulaStatus &,Dummy *,const std::vector<int>& p){return (scenario==L"ed" && !p.empty() && p[0]==3)?1:0;}
 float get_stat(FormulaStatus &,Dummy *,const std::vector<int>& p){
  if(p.empty()) return 0;
  if(scenario==L"fcr" && p[0]==86) return 4;
