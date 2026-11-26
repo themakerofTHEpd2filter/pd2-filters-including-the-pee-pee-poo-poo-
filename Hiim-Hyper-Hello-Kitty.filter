@@ -1,4 +1,8 @@
-﻿// v64: Match original Hiim level 7 unique filtering on all ground drops.
+﻿// v65: Hide all nonmagical white/grey circlet-family ground drops.
+// ci0 Circlet, ci1 Coronet, ci2 Tiara, ci3 Diadem.
+// Keep magic Tiaras and Diadems, plus existing rare/unique/set/craft rules.
+ItemDisplay[GROUND NMAG (ci0 OR ci1 OR ci2 OR ci3)]:
+// v64: Match original Hiim level 7 unique filtering on all ground drops.
 // Hiim FILTLVL=7: show 2/3/4-star uniques, with separate ethereal ratings.
 // Protect unique jewelry/facets and Hiim's boss/pinnacle drop exceptions.
 // Hide unranked, 0-star, no-star and 1-star uniques (including eth variants).
