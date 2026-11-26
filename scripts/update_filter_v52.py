@@ -27,3 +27,5 @@ for path in files:
     # Preserve the existing endgame rare/unique behavior, decoration and jewel variants.
     path.write_text("// v52: Targeted junk blue/white gear fix; rare helm scoring and blue jewels preserved.\n" + s, encoding="utf-8-sig")
     print("Corrected", path.name)
+
+# Trigger v52 filter regeneration.
