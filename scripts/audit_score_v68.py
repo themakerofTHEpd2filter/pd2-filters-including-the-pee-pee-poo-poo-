@@ -18,7 +18,7 @@ for label in ['RAREMELEE','RAREMELEEHUNDREDTHS','RARECASTER','RARECASTERHUNDREDT
   hits=[line.partition(': ')[2] for line in s.splitlines() if line.startswith('Formula['+label+']:')]
   if not hits: continue
   v=hits[0]
-  dep=len(re.findall(r'\\(',v))-len(re.findall(r'\\)',v))
+  dep=v.count('(')-v.count(')')
   print('FORMULACHECK',label,'LEN',len(v),'BAL',dep,'TRAIL',repr(v[-280:]))
 try:
   orig=subprocess.check_output(['git','show','80be1fe66ea8:Hiim-Hyper-Tailored-.filter'],text=True)
