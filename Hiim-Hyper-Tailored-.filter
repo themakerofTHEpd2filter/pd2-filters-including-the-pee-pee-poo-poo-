@@ -1,4 +1,13 @@
-﻿// v54: Strict ground-drop body armor and shield overhaul.
+﻿// v56: Hide all blue (magic) helm/circlet/amulet ground drops.
+// Blue Diadems, Tiara, Coronets, circlets, class helms, and magic amulets are included.
+// Filtering is GROUND only: picked-up items remain visible in inventory.
+ItemDisplay[GROUND MAG (HELM OR CIRC OR amu)]:
+// v55: Hide all magic and nonmagic gloves and boots on the ground.
+// Gloves and boots cannot be socketed; no runeword base exception applies.
+// Rare/set/unique/crafted boots and gloves keep their prior scoring/display rules.
+// This terminal rule precedes all inherited visibility rules.
+ItemDisplay[GROUND (GLOVES OR BOOTS) (MAG OR NMAG)]:
+// v54: Strict ground-drop body armor and shield overhaul.
 // No magic (blue) body armor or shields on ground.
 // White/grey bases: only ethereal superior elite bases, with 0 or useful 3/4 sockets.
 // Existing runewords, rare/set/unique/crafted items are not affected.
