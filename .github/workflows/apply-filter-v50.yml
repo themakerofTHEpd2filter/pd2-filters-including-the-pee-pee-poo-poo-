@@ -19,6 +19,7 @@ on:
       - 'scripts/update_filter_v65.py'
       - 'scripts/update_filter_v66.py'
       - 'scripts/update_filter_v67.py'
+      - 'scripts/audit_score_v68.py'
       - '.github/workflows/apply-filter-v50.yml'
   workflow_dispatch:
 permissions:
@@ -33,6 +34,7 @@ jobs:
           persist-credentials: true
       - name: Apply v67 missing Grail labels
         run: |
+          python3 scripts/audit_score_v68.py
           python3 scripts/update_filter_v67.py
       - name: Verify all five variants
         run: |
