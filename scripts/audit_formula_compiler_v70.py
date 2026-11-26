@@ -3,7 +3,7 @@ import re, subprocess, urllib.request
 
 repo = Path(__file__).resolve().parents[1]
 s = (repo / 'Hiim-Hyper-Tailored-.filter').read_text(encoding='utf-8-sig')
-keys = ['RARECASTER', 'RAREMELEE', 'RARECASTERHUNDREDTHS', 'RAREMELEEHUNDREDTHS', 'RAREDROPBEST']
+keys = ['RARECASTER', 'RAREMELEE', 'RARECASTERHUNDREDTHS', 'RAREMELEEHUNDREDTHS', 'RAREDROPBEST', 'RARESCORE']
 defs = {}
 for line in s.splitlines():
     if line.startswith('Formula[') and ']: ' in line:
