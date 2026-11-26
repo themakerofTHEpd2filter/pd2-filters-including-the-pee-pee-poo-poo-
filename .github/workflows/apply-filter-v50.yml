@@ -33,6 +33,7 @@ on:
       - 'scripts/audit_slot_coverage_v74.py'
       - 'scripts/update_filter_v74.py'
       - 'scripts/audit_slot_regression_v74.py'
+      - 'scripts/audit_spirit_keeper_v75.py'
       - 'scripts/update_filter_v68.py'
       - '.github/workflows/apply-filter-v50.yml'
   workflow_dispatch:
@@ -49,6 +50,7 @@ jobs:
           fetch-depth: 0
       - name: Apply v74 multi-category score coverage
         run: |
+          python3 scripts/audit_spirit_keeper_v75.py
           python3 scripts/update_filter_v74.py
           python3 scripts/audit_formula_compiler_v70.py
           python3 scripts/audit_helm_regression_v72.py
