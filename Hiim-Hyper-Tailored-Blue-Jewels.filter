@@ -1,4 +1,5 @@
-﻿// v74: Comprehensive additive grading for jewels, gloves, boots, jewelry, belts and quivers; no ground visibility changes.
+﻿// v75: Protect Spirit Keeper (Earth Spirit, drd) in both normal and ethereal unique variants.
+// v74: Comprehensive additive grading for jewels, gloves, boots, jewelry, belts and quivers; no ground visibility changes.
 // v73: Score midrange rare chest armor using actual FCR, skill, ED, strength, res, PLR and sockets.
 // v72: Dynamic barbarian-combat rare helm scoring including CB, PDR and sockets; existing top-tier scores retained.
 // v71: One exact 0-7 rating everywhere; obsolete score bands and 4.8+ labels removed.
@@ -15,6 +16,8 @@ ItemDisplay[GROUND UNI !ID !ALLDISCOVERED !jew]: %ORANGE%GRAIL %GOLD%%NAME%{%NAM
 ItemDisplay[GROUND SET !ID !ALLDISCOVERED]: %ORANGE%GRAIL %GREEN%%NAME%{%NAME%}
 ItemDisplay[GROUND UNI !ID ALLDISCOVERED !ALLOWNED !jew]: %WHITE%GRAIL %GOLD%%NAME%{%NAME%}
 ItemDisplay[GROUND SET !ID ALLDISCOVERED !ALLOWNED]: %WHITE%GRAIL %GREEN%%NAME%{%NAME%}
+// v75: Explicitly show Hiim 4-star Spirit Keeper on the ground, while Grail labels take priority.
+ItemDisplay[GROUND UNI drd]: %GOLD%Spirit Keeper%CONTINUE%{%NAME%}
 // v66: Restored rare/crafted tooltip score bands using existing scoring thresholds; no dynamic $f markup.
 // v65: Hide all nonmagical white/grey circlet-family ground drops.
 // ci0 Circlet, ci1 Coronet, ci2 Tiara, ci3 Diadem.
