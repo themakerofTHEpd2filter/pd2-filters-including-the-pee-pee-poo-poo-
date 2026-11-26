@@ -54,3 +54,4 @@ if r.returncode:
 for name, body in defs.items():
     p=subprocess.run(['/tmp/test_formula'],input=body,capture_output=True,text=True)
     print('ACTUAL_BH_PARSER',name,len(body),p.returncode,p.stdout.strip(),p.stderr[-200:])
+    assert p.returncode==0 and 'COMPILE_STATUS 0' in p.stdout, ('Invalid PD2 formula',name,p.stdout,p.stderr)
