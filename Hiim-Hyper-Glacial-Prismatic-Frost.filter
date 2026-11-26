@@ -1,4 +1,18 @@
-﻿// v53: Fix literal score placeholders and overly wide priority ground labels.
+﻿// v54: Strict ground-drop body armor and shield overhaul.
+// No magic (blue) body armor or shields on ground.
+// White/grey bases: only ethereal superior elite bases, with 0 or useful 3/4 sockets.
+// Existing runewords, rare/set/unique/crafted items are not affected.
+// Early terminal hides prevent later inherited rules from revealing junk.
+ItemDisplay[GROUND MAG EQ2]:
+ItemDisplay[GROUND MAG SHIELD]:
+ItemDisplay[GROUND NMAG !RW EQ2 !(ETH SUP ELT DEF>=750 (SOCK=0 OR SOCK=3 OR SOCK=4))]:
+ItemDisplay[GROUND NMAG !RW SHIELD !(ETH SUP ELT (SOCK=0 OR SOCK=3 OR SOCK=4))]:
+// Explicitly retain qualifying bases ahead of later generic white/grey hide rules.
+ItemDisplay[GROUND NMAG !RW EQ2 ETH SUP ELT DEF>=750 (SOCK=0 OR SOCK=3 OR SOCK=4)]: %NAME%{%NAME%}
+ItemDisplay[GROUND NMAG !RW SHIELD ETH SUP ELT (SOCK=0 OR SOCK=3 OR SOCK=4)]: %NAME%{%NAME%}
+// v53: Fix literal score placeholders and overly wide priority ground labels.
+// v52: Targeted junk blue/white gear fix; rare helm scoring and blue jewels preserved.
+// v53: Fix literal score placeholders and overly wide priority ground labels.
 // v52: Targeted junk blue/white gear fix; rare helm scoring and blue jewels preserved.
 // v51: Unique jewelry highlights; premium belts; helms ED+DS/CB+sockets+res; identified mauls scored normally.
 // v50: Show unique belts; +2 Necro Summon/Sorc elemental circlets stronger; ID mauls require 2.5.
@@ -35,6 +49,14 @@ ItemDisplay[GROUND BELT !(UNI (zlb OR zvb OR ztb OR zhb OR ulc OR uvc OR umc OR 
 ItemDisplay[GROUND rin !UNI]:
 // v51: More noticeable gold unique jewelry drops; preserve ID odds tooltips.
 ItemDisplay[GROUND UNI (amu OR rin)]: %BORDER-9B%%MAP-9B%%DOT-9B%%GOLD%* %NAME% *%CONTINUE%{%NAME%}
+// v52: Remove low-value ordinary blue and white dropped helms/weapons at strict tiers.
+// White/grey premium bases and identified magic items remain subject to existing checks.
+ItemDisplay[GROUND FILTLVL>2 MAG !ID HELM !CIRC !DRU !BAR]:
+ItemDisplay[GROUND FILTLVL>2 MAG !ID WEAPON !SOR !STAFF !WAND !THROWING !SCEPTER]:
+ItemDisplay[GROUND FILTLVL>2 NMAG !RW !SUP HELM !(SOCK>=3 MAXSOCKETS>=3)]:
+ItemDisplay[GROUND FILTLVL>2 NMAG !RW !SUP WEAPON !(ETH OR (SOCK>=4 TAILORED_RARE_WEAPON_BASE_OK))]:
+ItemDisplay[GROUND FILTLVL>2 NMAG !RW SUP HELM !TAILORED_SUPERIOR_BEST]:
+ItemDisplay[GROUND FILTLVL>2 NMAG !RW SUP WEAPON !TAILORED_SUPERIOR_BEST]:
 // v52: Remove low-value ordinary blue and white dropped helms/weapons at strict tiers.
 // White/grey premium bases and identified magic items remain subject to existing checks.
 ItemDisplay[GROUND FILTLVL>2 MAG !ID HELM !CIRC !DRU !BAR]:
