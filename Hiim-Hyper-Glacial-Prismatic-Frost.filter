@@ -1,4 +1,11 @@
-﻿// v57: Show blue Tiaras and Diadems; continue hiding other magic helms and amulets.
+﻿// v58: Remove blue crafting-base equipment drops on the ground at ALL filter levels.
+// No [LLD Craft] magic orbs, staves, wands, scepters, weapons, etc.
+// Keep magic Diadems (ci3), Tiaras (ci2), small charms and magic jewels.
+// Existing rare/crafted/unique/set items are NOT modified.
+// Rule deliberately precedes inherited LLD craft show overrides.
+ItemDisplay[GROUND MAG WEAPON]:
+ItemDisplay[GROUND MAG (GLOVES OR BOOTS OR BELT OR rin)]:
+// v57: Show blue Tiaras and Diadems; continue hiding other magic helms and amulets.
 // v56: Hide all blue (magic) helm/circlet/amulet ground drops.
 // Blue Diadems, Tiara, Coronets, circlets, class helms, and magic amulets are included.
 // Filtering is GROUND only: picked-up items remain visible in inventory.
