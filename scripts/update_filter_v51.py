@@ -88,3 +88,5 @@ for p in files:
     print("Updated", p.name, "bytes", len(s))
 
 assert len(files) >= 5, f"Expected five active filter variants, found {len(files)}"
+
+# Regenerate filters when this v51 script changes.
