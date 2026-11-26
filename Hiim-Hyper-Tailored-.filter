@@ -1,7 +1,10 @@
-﻿// v56: Hide all blue (magic) helm/circlet/amulet ground drops.
+﻿// v57: Show blue Tiaras and Diadems; continue hiding other magic helms and amulets.
+// v56: Hide all blue (magic) helm/circlet/amulet ground drops.
 // Blue Diadems, Tiara, Coronets, circlets, class helms, and magic amulets are included.
 // Filtering is GROUND only: picked-up items remain visible in inventory.
-ItemDisplay[GROUND MAG (HELM OR CIRC OR amu)]:
+// Magic Tiara (ci2) and Diadem (ci3) are deliberately retained on ground.
+ItemDisplay[GROUND MAG (ci2 OR ci3)]: %NAME%{%NAME%}
+ItemDisplay[GROUND MAG (HELM OR CIRC OR amu) !(ci2 OR ci3)]:
 // v55: Hide all magic and nonmagic gloves and boots on the ground.
 // Gloves and boots cannot be socketed; no runeword base exception applies.
 // Rare/set/unique/crafted boots and gloves keep their prior scoring/display rules.
