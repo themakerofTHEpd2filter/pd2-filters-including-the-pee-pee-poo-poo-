@@ -31,6 +31,8 @@ on:
       - 'scripts/update_filter_v73.py'
       - 'scripts/audit_armor_regression_v73.py'
       - 'scripts/audit_slot_coverage_v74.py'
+      - 'scripts/update_filter_v74.py'
+      - 'scripts/audit_slot_regression_v74.py'
       - 'scripts/update_filter_v68.py'
       - '.github/workflows/apply-filter-v50.yml'
   workflow_dispatch:
@@ -45,13 +47,13 @@ jobs:
         with:
           persist-credentials: true
           fetch-depth: 0
-      - name: Apply v73 balanced rare chest armor scores
+      - name: Apply v74 multi-category score coverage
         run: |
-          python3 scripts/audit_slot_coverage_v74.py
-          python3 scripts/update_filter_v73.py
+          python3 scripts/update_filter_v74.py
           python3 scripts/audit_formula_compiler_v70.py
           python3 scripts/audit_helm_regression_v72.py
           python3 scripts/audit_armor_regression_v73.py
+          python3 scripts/audit_slot_regression_v74.py
       - name: Verify all five variants
         run: |
           python3 - <<'PY'
@@ -60,7 +62,9 @@ jobs:
           assert len(files)>=5, f"Only {len(files)} variants found"
           for p in files:
               s=p.read_text(encoding='utf-8-sig')
-              assert s.startswith('// v73:'), p
+              assert s.startswith('// v74:'), p
+              assert 'OR (RARE ID BOOTS)' in s, p
+              assert 'AND(MISC,!JEWELRY,!CHARM,!QUIVER,!RUNE,!GEM' in s, p
               assert s.count('Formula[RARESCORE]:')==1, p
               assert '4.8+/7' not in s, p
               assert '%FORMULARARESCORE%' in s, p
@@ -107,6 +111,6 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add '*.filter'
           if ! git diff --cached --quiet; then
-            git commit -m "v73: recognize moderate rare armor caster and melee rolls"
+            git commit -m "v74: score rare jewels gloves boots amulets belts quivers"
             git push
           fi
