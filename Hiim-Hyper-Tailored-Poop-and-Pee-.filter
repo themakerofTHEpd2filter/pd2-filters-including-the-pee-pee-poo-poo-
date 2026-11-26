@@ -1,4 +1,7 @@
-﻿// v58: Remove blue crafting-base equipment drops on the ground at ALL filter levels.
+﻿// v59: Suppress conservative list of low-value noneth uniques at ground drop; preserve valuable/eth variants.
+// Identified and unidentified drops use the same base code. No change to inventories.
+ItemDisplay[GROUND UNI !ETH (7sm OR 7vo OR 8cb OR 8cs OR 8lb OR 8sw OR 9b9 OR 9fl OR 9kr OR 9sr OR gix OR kri OR lbb OR vbt OR xts OR xar)]:
+// v58: Remove blue crafting-base equipment drops on the ground at ALL filter levels.
 // No [LLD Craft] magic orbs, staves, wands, scepters, weapons, etc.
 // Keep magic Diadems (ci3), Tiaras (ci2), small charms and magic jewels.
 // Existing rare/crafted/unique/set items are NOT modified.
