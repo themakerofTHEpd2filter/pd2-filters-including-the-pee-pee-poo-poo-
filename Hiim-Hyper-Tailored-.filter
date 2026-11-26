@@ -1,4 +1,12 @@
-﻿// v60: Repair literal rare-score expressions; stop rare/craft score overlays on unique rings.
+﻿// v61: Hide low-value normal-tier set helms and worthless white/blue arrow/bolt quivers.
+// Keep valuable set items, unique quivers, rare quivers and rare 2.5+ scoring unchanged.
+// Sigon's Visor is ghm; identified and unidentified Great Helm sets are filtered.
+// Covers low-value normal set helm bases and Dangoon's Teaching.
+ItemDisplay[GROUND SET (ghm OR fhl OR bnh OR msk OR hlm OR skp OR cap OR 7ma)]:
+// No plain or magic quiver bases, including 2-socket Heavy Bolts cqv2.
+// Preserve rare, crafted, unique and set variants for their existing item rules.
+ItemDisplay[GROUND (NMAG OR MAG) (aqv OR aqv2 OR aqv3 OR cqv OR cqv2 OR cqv3)]:
+// v60: Repair literal rare-score expressions; stop rare/craft score overlays on unique rings.
 // v59: Suppress conservative list of low-value noneth uniques at ground drop; preserve valuable/eth variants.
 // Identified and unidentified drops use the same base code. No change to inventories.
 ItemDisplay[GROUND UNI !ETH (7sm OR 7vo OR 8cb OR 8cs OR 8lb OR 8sw OR 9b9 OR 9fl OR 9kr OR 9sr OR gix OR kri OR lbb OR vbt OR xts OR xar)]:
