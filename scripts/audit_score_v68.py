@@ -1,0 +1,9 @@
+from pathlib import Path
+p=Path(__file__).resolve().parents[1]/"Hiim-Hyper-Tailored-.filter"
+s=p.read_text(encoding="utf-8-sig")
+lines=s.splitlines()
+for needle in ("Alias[V21_SCORE_HOVER_]", "Alias[V19_GROUND_PRIORITY_]", "Alias[TAILORED_SCORED_GEAR]", "ItemDisplay[V21_SCORE_HOVER_", "Score ", "FORMULARAREMELEEHUNDREDTHS>249", "ItemDisplay[RARE ID", "ItemDisplay[GROUND RARE ID"):
+    matches=[(i+1,l) for i,l in enumerate(lines) if needle in l]
+    print("MATCH",needle,"COUNT",len(matches))
+    for i,l in matches[:12]: print("LINE",i,l[:1400])
+print("LATEST TOP", '\n'.join(lines[:17]))
