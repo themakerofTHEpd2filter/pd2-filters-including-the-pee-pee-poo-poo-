@@ -55,3 +55,5 @@ for path in files:
     print(path.name, "score tokens fixed:", replacements, "priority labels compacted:", compacted)
     changed += 1
 assert changed == len(files) or changed == 0
+
+# Trigger application of the v53 score-label correction.
