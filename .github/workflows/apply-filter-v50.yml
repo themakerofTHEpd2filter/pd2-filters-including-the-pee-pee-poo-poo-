@@ -25,6 +25,7 @@ on:
       - 'scripts/update_filter_v70.py'
       - 'scripts/audit_score_labels_v71.py'
       - 'scripts/update_filter_v71.py'
+      - 'scripts/audit_helm_v72.py'
       - 'scripts/update_filter_v68.py'
       - '.github/workflows/apply-filter-v50.yml'
   workflow_dispatch:
@@ -41,6 +42,7 @@ jobs:
           fetch-depth: 0
       - name: Apply v71 precise consistent 0-7 ratings
         run: |
+          python3 scripts/audit_helm_v72.py
           python3 scripts/update_filter_v71.py
           python3 scripts/audit_formula_compiler_v70.py
       - name: Verify all five variants
