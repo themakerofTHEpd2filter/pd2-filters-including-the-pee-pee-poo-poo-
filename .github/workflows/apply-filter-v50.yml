@@ -35,6 +35,7 @@ jobs:
           persist-credentials: true
       - name: Apply v68 complete identified rare tooltip ratings
         run: |
+          python3 scripts/audit_score_v68.py
           python3 scripts/update_filter_v68.py
       - name: Verify all five variants
         run: |
