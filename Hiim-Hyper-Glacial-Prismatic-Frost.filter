@@ -1,4 +1,14 @@
-﻿// v66: Restored rare/crafted tooltip score bands using existing scoring thresholds; no dynamic $f markup.
+﻿// v67: Grail labels using PD2's discovery/ownership conditions.
+// Not yet discovered: orange GRAIL. Discovered but not currently owned: white GRAIL.
+// These first-match rules are placed before the Hiim level-7 value cutoff;
+// ordinary already-owned low-value uniques/sets remain hidden.
+// Unique jewels are excluded, following the original Hiim grail tagging convention.
+// Ground only; do not replace inventory/hover behavior.
+ItemDisplay[GROUND UNI !ID !ALLDISCOVERED !jew]: %ORANGE%GRAIL %GOLD%%NAME%{%NAME%}
+ItemDisplay[GROUND SET !ID !ALLDISCOVERED]: %ORANGE%GRAIL %GREEN%%NAME%{%NAME%}
+ItemDisplay[GROUND UNI !ID ALLDISCOVERED !ALLOWNED !jew]: %WHITE%GRAIL %GOLD%%NAME%{%NAME%}
+ItemDisplay[GROUND SET !ID ALLDISCOVERED !ALLOWNED]: %WHITE%GRAIL %GREEN%%NAME%{%NAME%}
+// v66: Restored rare/crafted tooltip score bands using existing scoring thresholds; no dynamic $f markup.
 // v65: Hide all nonmagical white/grey circlet-family ground drops.
 // ci0 Circlet, ci1 Coronet, ci2 Tiara, ci3 Diadem.
 // Keep magic Tiaras and Diadems, plus existing rare/unique/set/craft rules.
