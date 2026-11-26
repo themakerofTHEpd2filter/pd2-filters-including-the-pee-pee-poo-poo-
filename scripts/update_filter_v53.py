@@ -24,7 +24,7 @@ for path in files:
                 # Conditions retain the exact existing score thresholds and item styling.
                 # Short name on ground; long stat breakdown is available on identification.
                 import re
-                numeric = re.findall(r"FORMULARARE(?:CASTER|MELEE)HUNDREDTHS>(\\d+)", selector)
+                numeric = re.findall(r"FORMULARARE(?:CASTER|MELEE)HUNDREDTHS>(\d+)", selector)
                 tier = max(map(int,numeric)) if numeric else 249
                 band = ("7" if tier >= 699 else "6.5+" if tier >= 649 else
                         "6+" if tier >= 599 else "5.5+" if tier >= 549 else
@@ -32,7 +32,7 @@ for path in files:
                         "4+" if tier >= 399 else "3.5+" if tier >= 349 else "2.5+")
                 old_colors = re.findall(r"%((?:CORAL|TEAL|PURPLE|GOLD|WHITE|GREEN|YELLOW|SAGE|ORANGE))%", display)
                 color = old_colors[0] if old_colors else "WHITE"
-                new_display = f"%{color}%[{band}] %NAME%%CONTINUE%{{%NAME%}}\\n"
+                new_display = f"%{color}%[{band}] %NAME%%CONTINUE%{{%NAME%}}\n"
                 fixed.append(selector + "]:" + new_display)
                 compacted += 1
                 continue
@@ -48,7 +48,7 @@ for path in files:
                 display = display.replace(name,expression)
                 replacements += n
         fixed.append(selector + "]:" + display)
-    updated = "// v53: Fix literal score placeholders and overly wide priority ground labels.\\n" + "".join(fixed)
+    updated = "// v53: Fix literal score placeholders and overly wide priority ground labels.\n" + "".join(fixed)
     if "%FORMULARAREMELEE%" in updated or "%FORMULARARECASTER%" in updated:
         raise ValueError("Unresolved score macro in " + path.name)
     path.write_text(updated, encoding="utf-8-sig")
