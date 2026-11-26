@@ -34,8 +34,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           persist-credentials: true
+          fetch-depth: 0
       - name: Apply v69 exact per-item rare and crafted scores
         run: |
+          python3 scripts/audit_score_v68.py
           python3 scripts/update_filter_v69.py
       - name: Verify all five variants
         run: |
